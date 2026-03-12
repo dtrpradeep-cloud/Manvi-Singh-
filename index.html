@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MANVI SINGH | The Ultimate Landing</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+        :root {
+            --primary-blue: #00d2ff;
+            --neon-blue: #0072ff;
+            --bg-dark: #000205;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--bg-dark);
+            font-family: 'Poppins', sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            perspective: 1000px;
+        }
+
+        /* Animated Background with Shooting Stars */
+        .bg-container {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, #001a33 0%, #000 100%);
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            background: #fff;
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: twinkle var(--d) infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.5); box-shadow: 0 0 10px var(--primary-blue); }
+        }
+
+        /* Main Premium Card */
+        .premium-card {
+            position: relative;
+            width: 380px;
+            padding: 40px 30px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            text-align: center;
+            border: 1px solid rgba(0, 210, 255, 0.2);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            transition: 0.5s;
+            overflow: hidden;
+        }
+
+        /* Neon Moving Border */
+        .premium-card::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: conic-gradient(transparent, transparent, transparent, var(--primary-blue));
+            animation: rotateBorder 4s linear infinite;
+            z-index: -1;
+        }
+        
+        .inner-bg {
+            position: absolute;
+            inset: 3px;
+            background: var(--bg-dark);
+            border-radius: 27px;
+            z-index: -1;
+        }
+
+        @keyframes rotateBorder {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .profile-wrapper {
+            position: relative;
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 20px;
+        }
+
+        .profile-img {
+            width: 100%; height: 100%;
+            border-radius: 50%;
+            border: 4px solid var(--primary-blue);
+            object-fit: cover;
+            filter: drop-shadow(0 0 15px var(--primary-blue));
+        }
+
+        h1 {
+            font-size: 38px;
+            font-weight: 900;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+            text-shadow: 0 0 15px var(--primary-blue);
+        }
+
+        .verified-tag {
+            color: var(--primary-blue);
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            display: block;
+            margin-bottom: 25px;
+        }
+
+        /* Dynamic Stats */
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 25px;
+            background: rgba(255,255,255,0.05);
+            padding: 10px;
+            border-radius: 15px;
+        }
+
+        .stat-box span {
+            display: block;
+            font-size: 18px;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .stat-box small {
+            font-size: 10px;
+            color: var(--primary-blue);
+            text-transform: uppercase;
+        }
+
+        /* Buttons */
+        .btn {
+            display: block;
+            padding: 16px;
+            margin-bottom: 15px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            transition: 0.3s;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-tg {
+            background: var(--primary-blue);
+            color: #000;
+            box-shadow: 0 10px 20px rgba(0, 210, 255, 0.3);
+        }
+
+        .btn-tg:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 210, 255, 0.5);
+            background: #fff;
+        }
+
+        .btn-admin {
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #fff;
+            background: rgba(255,255,255,0.05);
+        }
+
+        .btn-admin:hover {
+            border-color: var(--primary-blue);
+            background: rgba(0, 210, 255, 0.1);
+        }
+
+        .footer-info {
+            font-size: 11px;
+            color: rgba(255,255,255,0.4);
+            margin-top: 15px;
+        }
+
+    </style>
+ </head>
+ <body>
+  <div class="bg-container" id="starField"></div>
+  <div class="premium-card">
+   <div class="inner-bg"></div>
+   <div class="profile-wrapper">
+    <img src="https://i.ibb.co/99nGc1Yh/IMG-20260217-160214-389.jpg" class="profile-img" alt="Manvi">
+   </div>
+   <h1>MANVI SINGH</h1>
+   <span class="verified-tag"><i class="fas fa-check-circle"></i> Verified Channel</span>
+   <div class="stats-container">
+    <div class="stat-box">
+     <span id="memberCount">50K+</span> <small>Members</small>
+    </div>
+    <div class="stat-box">
+     <span>99%</span> <small>Accuracy</small>
+    </div>
+    <div class="stat-box">
+     <span>24/7</span> <small>Online</small>
+    </div>
+   </div>
+   <a href="https://t.me/+wJEWoUQtM_9jMGM1" class="btn btn-tg"> <i class="fab fa-telegram-plane"></i> JOIN TELEGRAM NOW </a> <a href="https://t.me/Officialmnvi007" class="btn btn-admin"> <i class="fas fa-crown"></i> CONTACT OWNER </a>
+   <div class="footer-info">© 2026 MANVI SINGH. ALL RIGHTS RESERVED.</div>
+  </div>
+  <script>
+        // Generate Stars
+        const field = document.getElementById('starField');
+        for (let i = 0; i < 150; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.width = star.style.height = (Math.random() * 3) + 'px';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.setProperty('--d', (Math.random() * 3 + 2) + 's');
+            field.appendChild(star);
+        }
+
+        // Mouse Move Card Tilt Effect
+        const card = document.querySelector('.premium-card');
+        document.addEventListener('mousemove', (e) => {
+            let x = (window.innerWidth / 2 - e.pageX) / 25;
+            let y = (window.innerHeight / 2 - e.pageY) / 25;
+            card.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+        });
+    </script>
+ </body>
+</html>
